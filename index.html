@@ -1,94 +1,152 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>BOAT RACE AI MENU</title>
-<meta name="theme-color" content="#0b1220">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BOAT RACE AI PRO MAX LITE CORE</title>
+
 <style>
-:root{
-  --bg:#08101c; --line:#243a63; --text:#edf4ff; --muted:#9fb3d9;
-  --blue:#2563eb; --cyan:#06b6d4; --green:#16a34a; --gold:#f59e0b; --violet:#7c3aed;
-}
-*{box-sizing:border-box}
-body{
-  margin:0; color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:
-    radial-gradient(circle at top left,#16335f 0%,#08101c 42%),
-    linear-gradient(180deg,#08101c,#091221);
-}
-.app{max-width:430px;margin:0 auto;min-height:100vh;padding:0 0 30px}
-.header{
-  padding:20px 14px 24px;
-  background:linear-gradient(135deg,#0f172a,#1d4ed8 58%,#06b6d4);
-  border-bottom-left-radius:24px;border-bottom-right-radius:24px;
-  box-shadow:0 12px 26px rgba(0,0,0,.35);
-}
-.header h1{margin:0;font-size:24px}
-.header p{margin:6px 0 0;font-size:12px;opacity:.95}
-.card{
-  margin:12px;padding:16px;
-  border-radius:20px;
-  background:linear-gradient(180deg,rgba(18,29,52,.98),rgba(11,20,36,.98));
-  border:1px solid var(--line);
-  box-shadow:0 10px 24px rgba(0,0,0,.26);
-}
-.hero{
-  border-radius:22px;padding:20px;text-align:center;
-  background:linear-gradient(135deg,#0b1220,#1e3a8a 58%,#0891b2);
-  border:1px solid #345bab;
-}
-.hero .big{font-size:30px;font-weight:900;line-height:1.25}
-.hero .sub{font-size:13px;opacity:.95;margin-top:8px}
-.badge{
-  display:inline-block;padding:7px 11px;border-radius:999px;margin:4px;font-weight:800
-}
-.good{background:linear-gradient(135deg,#059669,#16a34a)}
-.gold{background:linear-gradient(135deg,#f59e0b,#facc15);color:#111827}
-.tip{background:linear-gradient(135deg,#2563eb,#7c3aed)}
-.btn{
-  display:block;width:100%;text-decoration:none;color:white;font-weight:900;
-  text-align:center;padding:17px 14px;border-radius:18px;margin-top:10px
-}
-.btn-lite{background:linear-gradient(135deg,#2563eb,#06b6d4)}
-.btn-pro{background:linear-gradient(135deg,#7c3aed,#2563eb)}
-.btn-scout{background:linear-gradient(135deg,#f59e0b,#f97316)}
-.small{font-size:12px;color:var(--muted);line-height:1.7}
+body{margin:0;background:#0b1220;color:#fff;font-family:sans-serif}
+.app{max-width:430px;margin:auto;padding:10px}
+.card{background:#111827;padding:14px;margin:10px 0;border-radius:16px}
+input,select,button{width:100%;padding:10px;margin-top:6px;border-radius:10px;border:none}
+button{background:linear-gradient(135deg,#2563eb,#06b6d4);color:#fff;font-weight:800}
+.grid{display:grid;grid-template-columns:40px repeat(5,1fr);gap:6px;margin-top:6px}
+.cap{display:flex;align-items:center;justify-content:center;border-radius:8px;font-weight:900}
+.c1{background:#fff;color:#000}.c2{background:#000}.c3{background:red}.c4{background:blue}
+.c5{background:orange;color:#000}.c6{background:green}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;margin:4px}
+.good{background:#16a34a}.warn{background:#dc2626}.tip{background:#2563eb}
 </style>
 </head>
+
 <body>
 <div class="app">
-  <div class="header">
-    <h1>BOAT RACE AI</h1>
-    <p>LITE / PRO / SCOUT を使い分けるトップページ</p>
-  </div>
 
-  <div class="card">
-    <div class="hero">
-      <div class="big">普段は LITE<br>勝負は PRO<br>全体戦略は SCOUT</div>
-      <div class="sub">3つの役割を分けて、速さ・精度・資金配分を両立</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <span class="badge good">普段用</span>
-    <a class="btn btn-lite" href="lite.html">BOAT RACE AI LITE を開く</a>
-    <div class="small">全国 / 展示 / ST の少入力で高速判定。まず全レースを流す用です。</div>
-  </div>
-
-  <div class="card">
-    <span class="badge tip">勝負用</span>
-    <a class="btn btn-pro" href="pro.html">BOAT RACE AI PRO を開く</a>
-    <div class="small">進入予測AI、1マーク展開AI、展示差AI、万舟警戒モードつき。勝負レースの最終判断に使います。</div>
-  </div>
-
-  <div class="card">
-    <span class="badge gold">戦略用</span>
-    <a class="btn btn-scout" href="scout.html">SCOUT を開く</a>
-    <div class="small">複数レースを比較して、勝負レース自動抽出と資金配分を行います。買うレースだけ絞る時に使います。</div>
-  </div>
+<div class="card">
+<h2>BOAT RACE AI PRO MAX（簡略版）</h2>
+<select id="track">
+<option>住之江</option><option>大村</option><option>戸田</option>
+<option>江戸川</option><option>桐生</option>
+</select>
 </div>
+
+<div class="card">
+<div class="grid">
+<div>艇</div><div>全国</div><div>M2</div><div>ST</div><div>展示</div><div>級</div>
+</div>
+<div id="inputs"></div>
+</div>
+
+<div class="card">
+<button onclick="runAI()">AI予想</button>
+</div>
+
+<div class="card">
+<div id="result">結果待ち</div>
+</div>
+
+</div>
+
+<script>
+
+function makeInputs(){
+let html="";
+for(let i=1;i<=6;i++){
+html+=`
+<div class="grid">
+<div class="cap c${i}">${i}</div>
+<input id="rate${i}" inputmode="decimal">
+<input id="m2${i}" inputmode="decimal">
+<input id="st${i}" inputmode="decimal">
+<input id="tenji${i}" inputmode="decimal">
+<select id="cls${i}">
+<option>A1</option>
+<option>A2</option>
+<option>B1</option>
+<option>B2</option>
+</select>
+</div>
+`;
+}
+document.getElementById("inputs").innerHTML=html;
+}
+
+function classBonus(c){
+return c==="A1"?12:c==="A2"?8:c==="B1"?4:0;
+}
+
+function trackBias(track,boat){
+if(track==="大村" && boat===1) return 15;
+if(track==="戸田") return -5;
+if(track==="江戸川") return -10;
+return 0;
+}
+
+function runAI(){
+
+let arr=[];
+
+for(let i=1;i<=6;i++){
+
+const rate=+document.getElementById("rate"+i).value||0;
+const m2=+document.getElementById("m2"+i).value||0;
+const st=+document.getElementById("st"+i).value||0;
+const tenji=+document.getElementById("tenji"+i).value||0;
+const cls=document.getElementById("cls"+i).value;
+
+let score =
+rate*10 +
+m2*0.8 +
+(0.20-st)*40 +
+(7-tenji)*10 +
+classBonus(cls) +
+trackBias(document.getElementById("track").value,i);
+
+arr.push({boat:i,score,st,tenji});
+}
+
+arr.sort((a,b)=>b.score-a.score);
+
+// 展開判定
+let scenario="イン逃げ";
+if(arr[0].boat!==1) scenario="波乱";
+if(arr.filter(x=>x.st<=0.13).length>=2) scenario="まくり";
+
+// 万舟判定
+let diff=arr[0].score-arr[2].score;
+let manshu=0;
+
+if(diff<30) manshu+=40;
+if(arr[0].boat!==1) manshu+=20;
+if(arr.filter(x=>x.st<=0.13).length>=2) manshu+=20;
+
+manshu=Math.min(100,manshu);
+
+// 買い目
+let bets=[
+`${arr[0].boat}-${arr[1].boat}-${arr[2].boat}`,
+`${arr[0].boat}-${arr[2].boat}-${arr[1].boat}`
+];
+
+if(manshu>=60){
+bets.push(`${arr[2].boat}-${arr[0].boat}-${arr[1].boat}`);
+}
+
+document.getElementById("result").innerHTML=`
+<h3>本命：${arr[0].boat}号艇</h3>
+<div class="badge good">展開：${scenario}</div>
+<div class="badge warn">万舟率：${manshu}%</div>
+<div style="margin-top:10px">
+${bets.map(b=>`<div class="badge tip">${b}</div>`).join("")}
+</div>
+`;
+
+}
+
+makeInputs();
+
+</script>
+
 </body>
 </html>
